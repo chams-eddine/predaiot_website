@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREDAIOT - الجيل الجديد من الذكاء الاصطناعي والإنترنت من الأشياء</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <div id="threejs-container"></div>
+    <header>
+        <img src="assets/images/logo.png" alt="لوغو PREDAIOT">
+        <h1>PREDAIOT: تحويل الأصول الطاقية إلى أدوات مالية تلقائية تعظيم الإيرادات</h1>
+    </header>
+    <section id="founder">
+        <h2>المؤسس والرئيس التنفيذي: شامس الدين مادي</h2>
+        <img src="assets/images/founder.jpg" alt="شامس الدين مادي">
+        <p>شامس الدين مادي، مخترع ومؤسس، من أريانة، تونس (13 أفينيو حبيب بورقيبة، 2080). خلفية عميقة في الذكاء الاصطناعي، التعلم الآلي، والحوسبة الكمية. الرؤية: جعل كل أصل صناعي في المنطقة العربية يعمل بأقصى إمكاناته الاقتصادية. المهمة: توسيع EDE لتقديم مليارات الدولارات في القيمة الاقتصادية.</p>
+        <p>التخصصات: التحسين الكمي المستوحى، الذكاء الاصطناعي الصناعي، التحليلات التنبؤية والوصفية، إدارة أداء الأصول، كفاءة الطاقة، التحول الرقمي، التكنولوجيا العميقة، وريادة الأعمال.</p>
+        <p>البريد: zainavocat@gmail.com | الهاتف: +216 50 877 637</p>
+    </section>
+    <section id="patent">
+        <h2>البراءة المعلقة: محرك القرار الاقتصادي (EDE)</h2>
+        <img src="assets/images/patent-scan1.jpg" alt="مسح البراءة صفحة 1">
+        <img src="assets/images/patent-scan2.jpg" alt="مسح البراءة صفحة 2">
+        <p>رقم البراءة: TN/P/2025/0354، تاريخ الإيداع: 01/10/2025، تحت INNORPI التونسية. العنوان: "System and method for the economic optimization of predictive maintenance for assets". نظام هجين كمي-كلاسيكي يحل مشاكل التحسين المعقدة باستخدام QUBO وQPUs مثل D-Wave.</p>
+    </section>
+    <section id="technology">
+        <h2>التكنولوجيا: محرك القرار الاقتصادي (EDE)</h2>
+        <h3>الإصدار v1.0</h3>
+        <p>تنفيذ أساسي باستخدام Python: ede_core.py للمنطق، test_ede.py للاختبارات، input.json كمثال. يغطي سيناريوهات NO_ACTION، EXECUTE، POSTPONE بناءً على مقارنة التكاليف والخسائر.</p>
+        <code>python ede_core.py input.json output.json</code>
+        <h3>الإصدار v2.0</h3>
+        <p>نظام ميكروسيرفيسز مع FastAPI، خوارزميات الرسوم البيانية (EconomicGraph)، Docker Compose للنشر المحلي. يتضمن health-check لـ PostgreSQL، وأمثلة استخدام حقيقية.</p>
+        <pre>
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+        </pre>
+        <p>النظام الهجين: الطبقة الكلاسيكية (Sentinel) مع Complexity Analyzer، والطبقة الكمية (Oracle) مع QUBO Formulator و Solution Interpreter.</p>
+        <img src="assets/images/quantum-circuit1.png" alt="دارة كمية 1">
+        <img src="assets/images/quantum-circuit2.png" alt="دارة كمية 2">
+    </section>
+    <section id="impact">
+        <h2>التأثيرات الاقتصادية</h2>
+        <h3>قطاع الطاقة في عمان (2020-2024)</h3>
+        <img src="assets/images/impact-energy.jpg" alt="تقرير الطاقة">
+        <p>الخسائر بدون PREDAIOT: -716,822,470 OMR (متوسط -143,364,494 OMR/سنة). القيمة المخلوقة: +716,822,470 OMR من خلال زيادة الإنتاج وتوفير التكاليف.</p>
+        <h3>قطاع النفط والغاز في عمان (2015-2024)</h3>
+        <img src="assets/images/impact-oilgas.jpg" alt="تقرير النفط والغاز">
+        <p>الخسائر بدون PREDAIOT: -8,414,877,132 OMR (متوسط -841,487,713 OMR/سنة). القيمة المخلوقة: +8,364,554,654 OMR.</p>
+        <img src="assets/images/bar-chart.png" alt="رسم بياني للخسائر مقابل القيمة">
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
