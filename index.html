@@ -1,219 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>PREDAIOT - Quantum-AI Hybrid Optimization | Updated Nov 2025</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Three.js CDNs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PREDAIOT - Transforming Risk into Guaranteed Profit. World's first Profit-as-a-Service platform for energy sector.">
+    <meta name="keywords" content="PREDAIOT, Energy, AI, Profit-as-a-Service, Economic Decision Engine">
+    <title>PREDAIOT - Transforming Risk into Guaranteed Profit</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">PREDAIOT</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#problem">Challenge</a>
+                <a href="#solution">Solution</a>
+                <a href="#proof">Proof</a>
+                <a href="#founders">Leadership</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <!-- 3D Canvas Container -->
-    <div id="threejs-container"></div>
-
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button onclick="setLanguage('en')" class="lang-btn active" data-lang="en">EN</button>
-        <button onclick="setLanguage('ar')" class="lang-btn" data-lang="ar">AR</button>
-        <button onclick="setLanguage('fr')" class="lang-btn" data-lang="fr">FR</button>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#problem">Challenge</a>
+        <a href="#solution">Solution</a>
+        <a href="#proof">Proof</a>
+        <a href="#founders">Leadership</a>
+        <a href="#contact">Contact</a>
     </div>
 
-    <!-- Content Overlay -->
-    <div class="content" dir="ltr">
-        <header>
-            <img src="assets/images/logo.png" alt="PREDAIOT Logo" class="logo"/>
-            <h1 data-en="PREDAIOT: Quantum-Classical Economic Decision Engine | Updated Credentials Nov 2025"
-                data-ar="بريديوت: محرك القرار الاقتصادي الكمي-الكلاسيكي | تحديث الشهادات نوفمبر 2025"
-                data-fr="PREDAIOT : Moteur de Décision Économique Quantique-Classique | Credentials Mise à Jour Nov 2025">
-                PREDAIOT: Quantum-Classical Economic Decision Engine | Updated Credentials Nov 2025
-            </h1>
-        </header>
-
-        <!-- Founder Section (Updated with Credentials) -->
-        <section id="founder">
-            <h2 data-en="Founder & CEO: Chams Eddine Madi (Shams Eddine Bin Abderrazak Madi)"
-                data-ar="المؤسس والرئيس التنفيذي: شامس الدين بن عبد الرزاق مادي"
-                data-fr="Fondateur & PDG : Chams Eddine Madi (Shams Eddine Bin Abderrazak Madi)">
-                Founder & CEO: Chams Eddine Madi (Shams Eddine Bin Abderrazak Madi)
-            </h2>
-            <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" class="profile-img"/>
-            <p data-en="Tunisian National, Born: 05/11/1986. Inventor from Ariana, Tunisia (13 Ave Habib Bourguiba, 2080). Expert in AI, ML, and quantum optimization. Omani Business Partner with 2-Year Renewable Residency."
-               data-ar="جنسية تونسية، تاريخ الميلاد: 05/11/1986. مخترع من أريانة، تونس (13 شارع حبيب بورقيبة، 2080). خبير في الذكاء الاصطناعي، التعلم الآلي، والتحسين الكمي. شريك تجاري عماني بإقامة قابلة للتجديد لمدة عامين."
-               data-fr="Nationalité tunisienne, Né: 05/11/1986. Inventeur d'Ariana, Tunisie (13 Ave Habib Bourguiba, 2080). Expert en IA, ML et optimisation quantique. Partenaire d'affaires omanais avec résidence renouvelable de 2 ans.">
-                Tunisian National, Born: 05/11/1986. Inventor from Ariana, Tunisia (13 Ave Habib Bourguiba, 2080). Expert in AI, ML, and quantum optimization. Omani Business Partner with 2-Year Renewable Residency.
-            </p>
-            <div class="credentials-grid">
-                <div class="credential-card">
-                    <img src="assets/images/driving-license.jpg" alt="Tunisian Driving License"/>
-                    <p data-en="Tunisian Driving License (Class B, C1) - ID: 1405370550" data-ar="رخصة قيادة تونسية (فئة B, C1) - الهوية: 1405370550" data-fr="Permis de Conduire Tunisien (Classe B, C1) - ID: 1405370550">Tunisian Driving License (Class B, C1) - ID: 1405370550</p>
-                </div>
-                <div class="credential-card">
-                    <img src="assets/images/omani-resident.jpg" alt="Omani Resident Card"/>
-                    <p data-en="Omani Resident Card - Civil No.: 140537055, Expiry: 20/10/2027" data-ar="بطاقة إقامة عمانية - الرقم المدني: 140537055، انتهاء: 20/10/2027" data-fr="Carte de Résident Omanais - No. Civil: 140537055, Exp.: 20/10/2027">Omani Resident Card - Civil No.: 140537055, Expiry: 20/10/2027</p>
-                </div>
-                <div class="credential-card">
-                    <img src="assets/images/visa-confirmation.jpg" alt="Omani Employment Visa"/>
-                    <p data-en="Omani Employment Visa (Business Partner) - No.: 100059344895, Expiry: 27/05/2030" data-ar="تأشيرة عمل عمانية (شريك تجاري) - رقم: 100059344895، انتهاء: 27/05/2030" data-fr="Visa d'Emploi Omanais (Partenaire d'Affaires) - No.: 100059344895, Exp.: 27/05/2030">Omani Employment Visa (Business Partner) - No.: 100059344895, Expiry: 27/05/2030</p>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <canvas id="canvas3d"></canvas>
+        <div class="hero-content">
+            <h1 class="hero-title">Stop Selling Energy.<br>Start Selling Certainty.</h1>
+            <h2 class="hero-subtitle">PREDAIOT's patent-pending Economic Decision Engine (EDE) is the world's first Profit-as-a-Service (PaaS) platform for the energy sector, contractually guaranteeing a +15-20% revenue uplift for asset owners. We don't sell software; we deliver guaranteed economic outcomes.</h2>
+            <div class="cta-group">
+                <a href="#contact" class="btn-primary">Request a Confidential Briefing</a>
+                <a href="#proof" class="btn-secondary">See the Proof: Ibri Solar Plant</a>
             </div>
-            <p><strong data-en="Contact:" data-ar="تواصل:" data-fr="Contact :">Contact:</strong> 
-               zainavocat@gmail.com | +216 50 877 637
-            </p>
-        </section>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-        <!-- Business Credentials Section (New) -->
-        <section id="business">
-            <h2 data-en="Al Shams Investment and Trade Company SPC - Oman Operations"
-                data-ar="شركة الشمس للاستثمار والتجارة ش.ذ.م - العمليات في عمان"
-                data-fr="Al Shams Investment and Trade Company SPC - Opérations en Oman">
-                Al Shams Investment and Trade Company SPC - Oman Operations
-            </h2>
-            <p data-en="CR No.: 1610145 (Active until 01/06/2028). Sole Proprietor, Foreign Investment: 100%. Sectors: IT/Communications, Logistics, Trading, Waste Treatment, Manufacturing, Construction."
-               data-ar="رقم السجل: 1610145 (نشط حتى 01/06/2028). شركة شخص واحد، استثمار أجنبي: 100%. القطاعات: تكنولوجيا المعلومات/الاتصالات، اللوجستيات، التجارة، معالجة النفايات، التصنيع، البناء."
-               data-fr="No. CR: 1610145 (Actif jusqu'au 01/06/2028). Société à Responsabilité Limitée Unipersonnelle, Investissement Étranger: 100%. Secteurs: IT/Communications, Logistique, Commerce, Traitement des Déchets, Fabrication, Construction.">
-                CR No.: 1610145 (Active until 01/06/2028). Sole Proprietor, Foreign Investment: 100%. Sectors: IT/Communications, Logistics, Trading, Waste Treatment, Manufacturing, Construction.
-            </p>
-            <div class="documents-grid">
-                <div class="doc-card">
-                    <img src="assets/images/cr-certificate.jpg" alt="Commercial Registration Certificate"/>
-                    <p data-en="Commercial Registration (Est. 01/06/2025, Capital: 20,000 OMR)" data-ar="شهادة السجل التجاري (تأسيس 01/06/2025، رأس المال: 20,000 ريال عماني)" data-fr="Certificat d'Enregistrement Commercial (Fondé 01/06/2025, Capital: 20,000 OMR)">Commercial Registration (Est. 01/06/2025, Capital: 20,000 OMR)</p>
-                </div>
-                <div class="doc-card">
-                    <img src="assets/images/economic-license.jpg" alt="Economic Activities License"/>
-                    <p data-en="Economic License L3223749 (Wholesale Soap/Detergents, Expiry: 11/06/2026)" data-ar="رخصة الأنشطة الاقتصادية L3223749 (بيع جملة الصابون/المنظفات، انتهاء: 11/06/2026)" data-fr="Licence d'Activités Économiques L3223749 (Vente en Gros Savon/Détergents, Exp.: 11/06/2026)">Economic License L3223749 (Wholesale Soap/Detergents, Expiry: 11/06/2026)</p>
-                </div>
-                <div class="doc-card">
-                    <img src="assets/images/investment-permit.jpg" alt="Investment License"/>
-                    <p data-en="Investment License P293906 (Expiry: 15/06/2027)" data-ar="رخصة الاستثمار P293906 (انتهاء: 15/06/2027)" data-fr="Licence d'Investissement P293906 (Exp.: 15/06/2027)">Investment License P293906 (Expiry: 15/06/2027)</p>
-                </div>
-                <div class="doc-card">
-                    <img src="assets/images/occi-membership.jpg" alt="OCCI Membership"/>
-                    <p data-en="OCCI Membership No. 848882 (Grade 4, Expiry: 11/06/2026)" data-ar="عضوية غرفة عمان التجارية رقم 848882 (الفئة 4، انتهاء: 11/06/2026)" data-fr="Adhésion OCCI No. 848882 (Grade 4, Exp.: 11/06/2026)">OCCI Membership No. 848882 (Grade 4, Expiry: 11/06/2026)</p>
-                </div>
-                <div class="doc-card">
-                    <img src="assets/images/work-permit.jpg" alt="Work Permit Approval"/>
-                    <p data-en="Work Permit WPPA-3924009 (Business Partner, Expiry: 13/11/2026)" data-ar="تصريح عمل WPPA-3924009 (شريك تجاري، انتهاء: 13/11/2026)" data-fr="Permis de Travail WPPA-3924009 (Partenaire d'Affaires, Exp.: 13/11/2026)">Work Permit WPPA-3924009 (Business Partner, Expiry: 13/11/2026)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Patent Section -->
-        <section id="patent">
-            <h2 data-en="Patent Pending: INNORPI TN/P/2025/0354"
-                data-ar="براءة اختراع معلقة: INNORPI TN/P/2025/0354"
-                data-fr="Brevet en cours : INNORPI TN/P/2025/0354">
-                Patent Pending: INNORPI TN/P/2025/0354
-            </h2>
-            <p data-en="Filed: October 1, 2025 | Title: System and method for the economic optimization of predictive maintenance for assets"
-               data-ar="تاريخ الإيداع: 1 أكتوبر 2025 | العنوان: نظام وطريقة لتحسين الصيانة التنبؤية اقتصاديًا للأصول"
-               data-fr="Déposé : 1er octobre 2025 | Titre : Système et méthode d'optimisation économique de la maintenance prédictive des actifs">
-                Filed: October 1, 2025 | Title: System and method for the economic optimization of predictive maintenance for assets
-            </p>
-            <div class="patent-images">
-                <img src="assets/images/patent1.jpg" alt="Patent Page 1"/>
-                <img src="assets/images/patent2.jpg" alt="Patent Page 2"/>
-            </div>
-        </section>
-
-        <!-- EDE v1.0 & v2.0 Sections (Unchanged) -->
-        <section id="ede-v1">
-            <h2 data-en="EDE v1.0 - Core Decision Engine"
-                data-ar="محرك القرار الاقتصادي v1.0"
-                data-fr="EDE v1.0 - Moteur de Décision Économique">
-                EDE v1.0 - Core Decision Engine
-            </h2>
-            <img src="assets/images/v1-screenshot.jpg" alt="EDE v1.0"/>
-            <ul>
-                <li data-en="ede_core.py - Main logic" data-ar="ede_core.py - المنطق الرئيسي" data-fr="ede_core.py - Logique principale">ede_core.py - Main logic</li>
-                <li data-en="test_ede.py - Unit tests" data-ar="test_ede.py - اختبارات الوحدة" data-fr="test_ede.py - Tests unitaires">test_ede.py - Unit tests</li>
-                <li data-en="input.json - Sample input" data-ar="input.json - مدخل عينة" data-fr="input.json - Entrée exemple">input.json - Sample input</li>
-            </ul>
-            <code data-en="python ede_core.py input.json output.json"
-                  data-ar="python ede_core.py input.json output.json"
-                  data-fr="python ede_core.py input.json output.json">
-                python ede_core.py input.json output.json
-            </code>
-        </section>
-
-        <section id="ede-v2">
-            <h2 data-en="EDE v2.0 - Microservices & Quantum Integration"
-                data-ar="محرك القرار الاقتصادي v2.0 - ميكروسيرفيسز وتكامل كمي"
-                data-fr="EDE v2.0 - Microservices & Intégration Quantique">
-                EDE v2.0 - Microservices & Quantum Integration
-            </h2>
-            <img src="assets/images/v2-screenshot.jpg" alt="EDE v2.0"/>
-            <p data-en="Features: FastAPI, Docker, Graph Algorithms, QUBO Formulator"
-               data-ar="الميزات: FastAPI، Docker، خوارزميات الرسوم البيانية، صياغة QUBO"
-               data-fr="Fonctionnalités : FastAPI, Docker, Algorithmes de graphes, Formulateur QUBO">
-                Features: FastAPI, Docker, Graph Algorithms, QUBO Formulator
-            </p>
-        </section>
-
-        <!-- Economic Impact -->
-        <section id="impact">
-            <h2 data-en="Economic Impact - Oman"
-                data-ar="التأثير الاقتصادي - عمان"
-                data-fr="Impact Économique - Oman">
-                Economic Impact - Oman
-            </h2>
-            <div class="impact-grid">
-                <div>
-                    <h3 data-en="Energy Sector (2020-2024)" data-ar="قطاع الطاقة" data-fr="Secteur Énergie">Energy Sector (2020-2024)</h3>
-                    <img src="assets/images/impact-energy.jpg" alt="Energy Impact"/>
-                    <p><strong data-en="Losses Avoided:" data-ar="الخسائر المُتجنبة:" data-fr="Pertes évitées :">Losses Avoided:</strong> 716.8M OMR</p>
-                </div>
-                <div>
-                    <h3 data-en="Oil & Gas (2015-2024)" data-ar="النفط والغاز" data-fr="Pétrole & Gaz">Oil & Gas (2015-2024)</h3>
-                    <img src="assets/images/impact-oilgas.jpg" alt="Oil & Gas Impact"/>
-                    <p><strong data-en="Value Created:" data-ar="القيمة المُخلقة:" data-fr="Valeur créée :">Value Created:</strong> 8.36B OMR</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- New Financial Model Section -->
-        <section id="financial-model">
-            <h2 data-en="PREDAIOT Financial Model Projections (5-Year)"
-                data-ar="نموذج التمويل PREDAIOT (توقعات 5 سنوات)"
-                data-fr="Modèle Financier PREDAIOT (Projections 5 Ans)">
-                PREDAIOT Financial Model Projections (5-Year)
-            </h2>
-            <p data-en="Seed Funding Ask: $2M (40% Product, 30% Sales, 20% Team, 10% Ops). Revenue: $500K (Y1) to $50M (Y5)."
-               data-ar="طلب تمويل أولي: 2 مليون دولار (40% المنتج، 30% المبيعات، 20% الفريق، 10% العمليات). الإيرادات: 500 ألف دولار (سنة 1) إلى 50 مليون (سنة 5)."
-               data-fr="Demande de Financement Semence: 2M$ (40% Produit, 30% Ventes, 20% Équipe, 10% Opérations). Revenus: 500K$ (A1) à 50M$ (A5).">
-                Seed Funding Ask: $2M (40% Product, 30% Sales, 20% Team, 10% Ops). Revenue: $500K (Y1) to $50M (Y5).
-            </p>
-            <img src="assets/images/financial-model-chart.png" alt="Financial Projections Chart"/>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2025 PREDAIOT. All rights reserved. | Patent Pending TN/P/2025/0354 | Updated: Nov 09, 2025</p>
-        </footer>
+    <!-- Social Proof Bar -->
+    <div class="social-proof">
+        <h3>Trusted by the Architects of the Future Energy Economy</h3>
+        <div class="partners">
+            <div class="partner-logo">ITHCA Group</div>
+            <div class="partner-logo">Oman Development Bank</div>
+            <div class="partner-logo">Sunpure</div>
+            <div class="partner-logo">Vaisala</div>
+        </div>
     </div>
+
+    <!-- Problem Section -->
+    <section class="section" id="problem">
+        <div class="container">
+            <h2 class="section-title">The $4 Trillion Crisis<br>No One is Solving Correctly</h2>
+            <div class="problem-grid">
+                <div class="problem-card" data-aos="fade-up">
+                    <div class="problem-icon">⚡</div>
+                    <h3>Unprecedented Demand</h3>
+                    <p>AI is creating a vertical wall of energy demand that the grid cannot handle. The infrastructure gap is widening every day.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="problem-icon">🏭</div>
+                    <h3>Broken Supply Model</h3>
+                    <p>Building new energy infrastructure is too slow, too expensive, and too risky. Traditional approaches cannot keep pace.</p>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-icon">💸</div>
+                    <h3>Catastrophic Inefficiency</h3>
+                    <p>Billions in potential revenue are lost daily due to operational and economic inefficiencies of existing assets.</p>
+                </div>
+            </div>
+            <div class="problem-conclusion" data-aos="fade-up" data-aos-delay="300">
+                "The industry's focus on building more is a losing strategy. The only viable solution is to make the existing system radically more profitable. This is what we do."
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section section-dark" id="solution">
+        <div class="container">
+            <h2 class="section-title">We Don't Predict the Weather.<br>We Predict the Profit.</h2>
+            <div class="solution-grid">
+                <div class="solution-card" data-aos="zoom-in">
+                    <div class="solution-number">01</div>
+                    <h3>Financial Engineering</h3>
+                    <p>We transform volatile operational data into a stable, guaranteed financial return. Our algorithms turn uncertainty into contractual certainty.</p>
+                </div>
+                <div class="solution-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="solution-number">02</div>
+                    <h3>Autonomous Economic Execution</h3>
+                    <p>Our EDE makes thousands of real-time micro-decisions to maximize profitability (OMR/hour), not just output (kWh). Every second optimized for revenue.</p>
+                </div>
+                <div class="solution-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="solution-number">03</div>
+                    <h3>Zero-Risk Partnership</h3>
+                    <p>We absorb 100% of the implementation risk. Our clients pay us only from a share of the proven, new profits we generate. Zero CAPEX. Guaranteed ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Section -->
+    <section class="section" id="proof">
+        <div class="container">
+            <h2 class="section-title">The Ibri Solar Plant:<br>From Passive Asset to Profit-Seeking Unit</h2>
+            <div class="proof-stats">
+                <div class="stat-card" data-aos="flip-up">
+                    <div class="stat-number">+18%</div>
+                    <div class="stat-label">Guaranteed Revenue Uplift</div>
+                </div>
+                <div class="stat-card" data-aos="flip-up" data-aos-delay="100">
+                    <div class="stat-number">-80%</div>
+                    <div class="stat-label">Reduction in Economic Volatility</div>
+                </div>
+                <div class="stat-card" data-aos="flip-up" data-aos-delay="200">
+                    <div class="stat-number">$0</div>
+                    <div class="stat-label">Upfront Capital Expenditure</div>
+                </div>
+            </div>
+            <div class="cta-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="#contact" class="btn-primary">Download the Full Case Study</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section class="section section-dark" id="founders">
+        <div class="container">
+            <h2 class="section-title">Leadership Vision</h2>
+            <div class="founders-grid">
+                <div class="founder-card" data-aos="fade-right">
+                    <div class="founder-image-container">
+                    <div class="founder-image" style="background: linear-gradient(135deg, #00ff88, #00d4ff); display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; color: #000;">CM</div>
+                    </div>
+                    <h3>Chams Eddine Madi</h3>
+                    <p class="founder-title">Co-Founder & CEO</p>
+                    <p class="founder-quote">"I founded PREDAIOT on a simple, radical belief: In the new energy economy, selling technology is obsolete. The future belongs to those who can sell certainty. We are not just another tech company; we are a strategic financial partner, and our promise is backed by mathematics and a patent-pending engine. We are here to build the economic infrastructure of the future."</p>
+                    <a href="https://www.linkedin.com/in/chams-eddine-madi-74b407379" target="_blank" class="founder-linkedin">Connect on LinkedIn</a>
+                </div>
+                <div class="founder-card" data-aos="fade-left">
+                    <div class="founder-image-container">
+                        <img src="images/sumaiya-begum.jpg" alt="Sumaiya Begum" class="founder-image">
+                    </div>
+                    <h3>Sumaiya Begum</h3>
+                    <p class="founder-title">Co-Founder & Chief Strategy Officer</p>
+                    <p class="founder-quote">"Our mission is to transform how energy companies think about value creation. We're not selling predictions—we're engineering financial certainty through autonomous economic intelligence. Every partnership we build is a step toward redefining what's possible in the energy sector."</p>
+                    <a href="#contact" class="founder-linkedin">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-section">
+                <h2 class="section-title">Are You Ready to Move Beyond Technology<br>and Start Guaranteeing Profit?</h2>
+                <p class="contact-subtitle">Schedule a confidential briefing with our strategy team to model the guaranteed financial impact on your assets.</p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="fullName" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Work Email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="company" placeholder="Company" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="jobTitle" placeholder="Job Title" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Secure My Briefing</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-tagline">PREDAIOT: The Economic Certainty Company</div>
+            <div class="footer-links">
+                <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a>
+                <a href="https://www.linkedin.com/in/chams-eddine-madi-74b407379" target="_blank">LinkedIn</a>
+                <a href="#">Confidentiality & Legal Notice</a>
+            </div>
+            <div class="footer-copyright">© 2025 PREDAIOT. All Rights Reserved.</div>
+        </div>
+    </footer>
 
     <!-- Scripts -->
-    <script src="js/script.js"></script>
-    <script>
-        // Language System (Unchanged)
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            document.querySelectorAll('[data-en]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en');
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-            document.body.style.fontFamily = lang === 'ar' ? "'Tajawal', sans-serif" : "'Roboto', sans-serif";
-        }
-
-        // Load English by default
-        window.onload = () => setLanguage('en');
-    </script>
+    <script src="js/particles.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

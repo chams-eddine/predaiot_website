@@ -1,0 +1,205 @@
+/* ============================================
+   PREDAIOT Website - Responsive Design
+   ============================================ */
+
+/* === TABLET (768px - 1024px) === */
+@media (max-width: 1024px) {
+    #navbar {
+        padding: 20px 40px;
+    }
+
+    .section {
+        padding: 100px 40px;
+    }
+
+    .hero-title {
+        font-size: 56px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .section-title {
+        font-size: 48px;
+    }
+
+    .solution-grid,
+    .problem-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .founders-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === MOBILE (max-width: 768px) === */
+@media (max-width: 768px) {
+    #navbar {
+        padding: 15px 30px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .hero {
+        min-height: 100vh;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        padding: 16px 30px;
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 80px 30px;
+    }
+
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .problem-grid,
+    .solution-grid,
+    .proof-stats {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .problem-card,
+    .solution-card {
+        padding: 30px;
+    }
+
+    .stat-card {
+        padding: 40px 30px;
+    }
+
+    .stat-number {
+        font-size: 48px;
+    }
+
+    .founders-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .founder-card {
+        padding: 40px 30px;
+    }
+
+    .contact-section {
+        padding: 60px 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .social-proof {
+        padding: 40px 20px;
+    }
+
+    .partners {
+        gap: 30px;
+    }
+
+    .partner-logo {
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* === SMALL MOBILE (max-width: 480px) === */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .problem-icon {
+        font-size: 36px;
+    }
+
+    .problem-card h3,
+    .solution-card h3 {
+        font-size: 20px;
+    }
+
+    .stat-number {
+        font-size: 40px;
+    }
+
+    .founder-image-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .founder-card h3 {
+        font-size: 24px;
+    }
+}
+
+/* === LARGE SCREENS (min-width: 1400px) === */
+@media (min-width: 1400px) {
+    .hero-title {
+        font-size: 80px;
+    }
+
+    .hero-subtitle {
+        font-size: 26px;
+    }
+
+    .section-title {
+        font-size: 64px;
+    }
+}
