@@ -3,23 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PREDAIOT - Transforming Risk into Guaranteed Profit. World's first Profit-as-a-Service platform for energy sector.">
-    <meta name="keywords" content="PREDAIOT, Energy, AI, Profit-as-a-Service, Economic Decision Engine">
     <title>PREDAIOT - Transforming Risk into Guaranteed Profit</title>
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        :root {
+            --primary-green: #00ff88;
+            --primary-cyan: #00d4ff;
+            --dark-bg: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ff88;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #00ff88;
+            transition: 0.3s;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+
+        #canvas3d {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .hero-title {
+            font-size: clamp(42px, 6vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: 400;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 50px;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn-primary {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #00ff88, #00d4ff);
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 18px 40px;
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-proof {
+            background: linear-gradient(180deg, rgba(0, 20, 40, 0.6), rgba(0, 0, 0, 0.8));
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .social-proof h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #00ff88;
+            margin-bottom: 40px;
+        }
+
+        .partners {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.3s;
+        }
+
+        .partner-logo:hover {
+            color: #00ff88;
+        }
+
+        section {
+            padding: 120px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.3), rgba(0, 20, 40, 0.2));
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+        }
+
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #00ff88;
+        }
+
+        .problem-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .problem-conclusion {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #00ff88;
+            padding: 30px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 15px;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, rgba(0, 60, 100, 0.4), rgba(0, 30, 60, 0.3));
+            padding: 50px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #00d4ff);
+        }
+
+        .solution-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        .solution-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .proof-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+            border-radius: 20px;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 800;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .founder-card {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.4), rgba(0, 20, 40, 0.3));
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            text-align: center;
+        }
+
+        .founder-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 4px solid #00ff88;
+            object-fit: cover;
+        }
+
+        .founder-card h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #00ff88;
+        }
+
+        .founder-title {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 25px;
+        }
+
+        .founder-quote {
+            font-style: italic;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .founder-linkedin {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(0, 119, 181, 0.2);
+            color: #00d4ff;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 1px solid #00d4ff;
+            transition: all 0.3s;
+        }
+
+        .founder-linkedin:hover {
+            background: rgba(0, 119, 181, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.5), rgba(0, 20, 40, 0.4));
+            border-radius: 30px;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 50px auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 18px 25px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #00ff88;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        footer {
+            background: #000;
+            padding: 60px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .footer-tagline {
+            font-size: 24px;
+            color: #00ff88;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #00ff88;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 80px 30px;
+            }
+
+            .problem-grid,
+            .solution-grid,
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
+    <nav>
         <div class="nav-container">
             <div class="logo">PREDAIOT</div>
             <div class="nav-links">
@@ -38,17 +544,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#home">Home</a>
-        <a href="#problem">Challenge</a>
-        <a href="#solution">Solution</a>
-        <a href="#proof">Proof</a>
-        <a href="#founders">Leadership</a>
-        <a href="#contact">Contact</a>
-    </div>
-
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <canvas id="canvas3d"></canvas>
         <div class="hero-content">
@@ -59,13 +554,8 @@
                 <a href="#proof" class="btn-secondary">See the Proof: Ibri Solar Plant</a>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll Down</span>
-            <div class="scroll-arrow"></div>
-        </div>
     </section>
 
-    <!-- Social Proof Bar -->
     <div class="social-proof">
         <h3>Trusted by the Architects of the Future Energy Economy</h3>
         <div class="partners">
@@ -76,153 +566,217 @@
         </div>
     </div>
 
-    <!-- Problem Section -->
-    <section class="section" id="problem">
-        <div class="container">
-            <h2 class="section-title">The $4 Trillion Crisis<br>No One is Solving Correctly</h2>
-            <div class="problem-grid">
-                <div class="problem-card" data-aos="fade-up">
-                    <div class="problem-icon">⚡</div>
-                    <h3>Unprecedented Demand</h3>
-                    <p>AI is creating a vertical wall of energy demand that the grid cannot handle. The infrastructure gap is widening every day.</p>
-                </div>
-                <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="problem-icon">🏭</div>
-                    <h3>Broken Supply Model</h3>
-                    <p>Building new energy infrastructure is too slow, too expensive, and too risky. Traditional approaches cannot keep pace.</p>
-                </div>
-                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="problem-icon">💸</div>
-                    <h3>Catastrophic Inefficiency</h3>
-                    <p>Billions in potential revenue are lost daily due to operational and economic inefficiencies of existing assets.</p>
-                </div>
+    <section id="problem">
+        <h2 class="section-title">The $4 Trillion Crisis<br>No One is Solving Correctly</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">⚡</div>
+                <h3>Unprecedented Demand</h3>
+                <p>AI is creating a vertical wall of energy demand that the grid cannot handle. The infrastructure gap is widening every day.</p>
             </div>
-            <div class="problem-conclusion" data-aos="fade-up" data-aos-delay="300">
-                "The industry's focus on building more is a losing strategy. The only viable solution is to make the existing system radically more profitable. This is what we do."
+            <div class="problem-card">
+                <div class="problem-icon">🏭</div>
+                <h3>Broken Supply Model</h3>
+                <p>Building new energy infrastructure is too slow, too expensive, and too risky. Traditional approaches cannot keep pace.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">💸</div>
+                <h3>Catastrophic Inefficiency</h3>
+                <p>Billions in potential revenue are lost daily due to operational and economic inefficiencies of existing assets.</p>
+            </div>
+        </div>
+        <div class="problem-conclusion">
+            "The industry's focus on building more is a losing strategy. The only viable solution is to make the existing system radically more profitable. This is what we do."
+        </div>
+    </section>
+
+    <section id="solution">
+        <h2 class="section-title">We Don't Predict the Weather.<br>We Predict the Profit.</h2>
+        <div class="solution-grid">
+            <div class="solution-card">
+                <h3>Financial Engineering</h3>
+                <p>We transform volatile operational data into a stable, guaranteed financial return. Our algorithms turn uncertainty into contractual certainty.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Autonomous Economic Execution</h3>
+                <p>Our EDE makes thousands of real-time micro-decisions to maximize profitability (OMR/hour), not just output (kWh). Every second optimized for revenue.</p>
+            </div>
+            <div class="solution-card">
+                <h3>Zero-Risk Partnership</h3>
+                <p>We absorb 100% of the implementation risk. Our clients pay us only from a share of the proven, new profits we generate. Zero CAPEX. Guaranteed ROI.</p>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section class="section section-dark" id="solution">
-        <div class="container">
-            <h2 class="section-title">We Don't Predict the Weather.<br>We Predict the Profit.</h2>
-            <div class="solution-grid">
-                <div class="solution-card" data-aos="zoom-in">
-                    <div class="solution-number">01</div>
-                    <h3>Financial Engineering</h3>
-                    <p>We transform volatile operational data into a stable, guaranteed financial return. Our algorithms turn uncertainty into contractual certainty.</p>
-                </div>
-                <div class="solution-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="solution-number">02</div>
-                    <h3>Autonomous Economic Execution</h3>
-                    <p>Our EDE makes thousands of real-time micro-decisions to maximize profitability (OMR/hour), not just output (kWh). Every second optimized for revenue.</p>
-                </div>
-                <div class="solution-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="solution-number">03</div>
-                    <h3>Zero-Risk Partnership</h3>
-                    <p>We absorb 100% of the implementation risk. Our clients pay us only from a share of the proven, new profits we generate. Zero CAPEX. Guaranteed ROI.</p>
-                </div>
+    <section id="proof">
+        <h2 class="section-title">The Ibri Solar Plant:<br>From Passive Asset to Profit-Seeking Unit</h2>
+        <div class="proof-stats">
+            <div class="stat-card">
+                <div class="stat-number">+18%</div>
+                <div class="stat-label">Guaranteed Revenue Uplift</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">-80%</div>
+                <div class="stat-label">Reduction in Economic Volatility</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$0</div>
+                <div class="stat-label">Upfront Capital Expenditure</div>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="#contact" class="btn-primary">Download the Full Case Study</a>
+        </div>
+    </section>
+
+    <section id="founders">
+        <h2 class="section-title">Leadership Vision</h2>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <img src="https://via.placeholder.com/200/00ff88/000000?text=CE+Madi" alt="Chams Eddine Madi" class="founder-image">
+                <h3>Chams Eddine Madi</h3>
+                <p class="founder-title">Co-Founder & CEO</p>
+                <p class="founder-quote">"I founded PREDAIOT on a simple, radical belief: In the new energy economy, selling technology is obsolete. The future belongs to those who can sell certainty. We are not just another tech company; we are a strategic financial partner, and our promise is backed by mathematics and a patent-pending engine."</p>
+                <a href="https://www.linkedin.com/in/chams-eddine-madi-74b407379" target="_blank" class="founder-linkedin">Connect on LinkedIn</a>
+            </div>
+            <div class="founder-card">
+                <img src="https://via.placeholder.com/200/00d4ff/000000?text=S+Begum" alt="Sumaiya Begum" class="founder-image">
+                <h3>Sumaiya Begum</h3>
+                <p class="founder-title">Co-Founder & Chief Strategy Officer</p>
+                <p class="founder-quote">"Our mission is to transform how energy companies think about value creation. We're not selling predictions—we're engineering financial certainty through autonomous economic intelligence. Every partnership we build is a step toward redefining what's possible."</p>
+                <a href="#contact" class="founder-linkedin">Connect on LinkedIn</a>
             </div>
         </div>
     </section>
 
-    <!-- Proof Section -->
-    <section class="section" id="proof">
-        <div class="container">
-            <h2 class="section-title">The Ibri Solar Plant:<br>From Passive Asset to Profit-Seeking Unit</h2>
-            <div class="proof-stats">
-                <div class="stat-card" data-aos="flip-up">
-                    <div class="stat-number">+18%</div>
-                    <div class="stat-label">Guaranteed Revenue Uplift</div>
+    <section id="contact">
+        <div class="contact-section">
+            <h2 class="section-title">Are You Ready to Move Beyond Technology<br>and Start Guaranteeing Profit?</h2>
+            <p style="font-size: 20px; color: rgba(255,255,255,0.7); margin-bottom: 20px;">Schedule a confidential briefing with our strategy team to model the guaranteed financial impact on your assets.</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Full Name" required>
                 </div>
-                <div class="stat-card" data-aos="flip-up" data-aos-delay="100">
-                    <div class="stat-number">-80%</div>
-                    <div class="stat-label">Reduction in Economic Volatility</div>
+                <div class="form-group">
+                    <input type="email" placeholder="Work Email" required>
                 </div>
-                <div class="stat-card" data-aos="flip-up" data-aos-delay="200">
-                    <div class="stat-number">$0</div>
-                    <div class="stat-label">Upfront Capital Expenditure</div>
+                <div class="form-group">
+                    <input type="text" placeholder="Company" required>
                 </div>
-            </div>
-            <div class="cta-center" data-aos="fade-up" data-aos-delay="300">
-                <a href="#contact" class="btn-primary">Download the Full Case Study</a>
-            </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Job Title" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Secure My Briefing</button>
+            </form>
         </div>
     </section>
 
-    <!-- Founders Section -->
-    <section class="section section-dark" id="founders">
-        <div class="container">
-            <h2 class="section-title">Leadership Vision</h2>
-            <div class="founders-grid">
-                <div class="founder-card" data-aos="fade-right">
-                    <div class="founder-image-container">
-                    <div class="founder-image" style="background: linear-gradient(135deg, #00ff88, #00d4ff); display: flex; align-items: center; justify-content: center; font-size: 48px; font-weight: 800; color: #000;">CM</div>
-                    </div>
-                    <h3>Chams Eddine Madi</h3>
-                    <p class="founder-title">Co-Founder & CEO</p>
-                    <p class="founder-quote">"I founded PREDAIOT on a simple, radical belief: In the new energy economy, selling technology is obsolete. The future belongs to those who can sell certainty. We are not just another tech company; we are a strategic financial partner, and our promise is backed by mathematics and a patent-pending engine. We are here to build the economic infrastructure of the future."</p>
-                    <a href="https://www.linkedin.com/in/chams-eddine-madi-74b407379" target="_blank" class="founder-linkedin">Connect on LinkedIn</a>
-                </div>
-                <div class="founder-card" data-aos="fade-left">
-                    <div class="founder-image-container">
-                        <img src="images/sumaiya-begum.jpg" alt="Sumaiya Begum" class="founder-image">
-                    </div>
-                    <h3>Sumaiya Begum</h3>
-                    <p class="founder-title">Co-Founder & Chief Strategy Officer</p>
-                    <p class="founder-quote">"Our mission is to transform how energy companies think about value creation. We're not selling predictions—we're engineering financial certainty through autonomous economic intelligence. Every partnership we build is a step toward redefining what's possible in the energy sector."</p>
-                    <a href="#contact" class="founder-linkedin">Connect on LinkedIn</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="contact-section">
-                <h2 class="section-title">Are You Ready to Move Beyond Technology<br>and Start Guaranteeing Profit?</h2>
-                <p class="contact-subtitle">Schedule a confidential briefing with our strategy team to model the guaranteed financial impact on your assets.</p>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="fullName" placeholder="Full Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Work Email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" name="company" placeholder="Company" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="jobTitle" placeholder="Job Title" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn-primary btn-full">Secure My Briefing</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-tagline">PREDAIOT: The Economic Certainty Company</div>
-            <div class="footer-links">
-                <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a>
-                <a href="https://www.linkedin.com/in/chams-eddine-madi-74b407379" target="_blank">LinkedIn</a>
-                <a href="#">Confidentiality & Legal Notice</a>
-            </div>
-            <div class="footer-copyright">© 2025 PREDAIOT. All Rights Reserved.</div>
+        <div class="footer-tagline">PREDAIOT: The Economic Certainty Company</div>
+        <div class="footer-links">
+            <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a>
+            <a href="https://www.linkedin.com/in/chams-eddine-madi-74b407379" target="_blank">LinkedIn</a>
+            <a href="#">Confidentiality & Legal Notice</a>
         </div>
+        <div class="footer-copyright">© 2025 PREDAIOT. All Rights Reserved.</div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="js/particles.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+        // 3D Particle Animation
+        const canvas = document.getElementById('canvas3d');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 255, 136, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        const particles = Array.from({ length: 100 }, () => new Particle());
+
+        function animate() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            particles.forEach((p1, i) => {
+                particles.slice(i + 1).forEach(p2 => {
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(0, 212, 255, ${0.2 * (1 - dist / 150)})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! Our strategy team will contact you within 24 hours to schedule your confidential briefing.');
+            this.reset();
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu
+        document.getElementById('hamburger').addEventListener('click', function() {
+            alert('Mobile menu - add your navigation here');
+        });
+    </script>
 </body>
 </html>
