@@ -1,80 +1,155 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PREDAIOT - Quantum-AI Hybrid Optimization for Industrial Assets</title>
-<link rel="stylesheet" href="css/style.css">
-
-<!-- Three.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PREDAIOT - Quantum-AI Hybrid Optimization</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Three.js CDNs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
 
-<header>
-    <img src="assets/images/logo.png" alt="PREDAIOT Logo" style="height:80px;">
-    <h1>PREDAIOT: Quantum-AI Hybrid Optimization for Industrial Assets</h1>
-    <nav>
-        <select id="language-selector">
-            <option value="ar">العربية</option>
-            <option value="fr">Français</option>
-            <option value="en" selected>English</option>
-        </select>
-    </nav>
-</header>
+    <!-- 3D Canvas Container -->
+    <div id="threejs-container"></div>
 
-<!-- Genius 3D Container -->
-<div id="threejs-container" style="width:100%; height:500px;"></div>
-
-<!-- Founder Section -->
-<section id="founder">
-    <div class="lang" data-lang="en">
-        <h2>Founder & CEO: Chams Eddine Madi</h2>
-        <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
-        <p>Chams Eddine Madi, inventor and CEO, hails from Ariana, Tunisia. Visionary in AI, ML, and Quantum Computing, founded PREDAIOT to combat "value leakage" in industrial sectors.</p>
-        <p>"The future of industry will be defined not by the data we collect, but by the quality of the decisions we make."</p>
-        <p>Vision: Peak economic potential for MENA assets; Quantum-AI synergy for net-zero acceleration and Oman's deep tech leadership.</p>
-        <p>Mission: Scale EDE to deliver $8B+ in value, solving NP-hard optimizations classical systems cannot.</p>
-        <p>Specialties: Quantum-Inspired Optimization, Industrial AI, Prescriptive Analytics, APM, Energy Efficiency, Deep Tech Entrepreneurship.</p>
-        <p>Connect: <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a> | Phone: <a href="tel:+96874114028">+968 7411 4028</a> | Full registered company in Muscat, Oman</p>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button onclick="setLanguage('en')" class="lang-btn active" data-lang="en">EN</button>
+        <button onclick="setLanguage('ar')" class="lang-btn" data-lang="ar">AR</button>
+        <button onclick="setLanguage('fr')" class="lang-btn" data-lang="fr">FR</button>
     </div>
-    <div class="lang" data-lang="fr" style="display:none;">
-        <h2>Fondateur & PDG : Chams Eddine Madi</h2>
-        <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
-        <p>Description en français à compléter...</p>
+
+    <!-- Content Overlay -->
+    <div class="content" dir="ltr">
+        <header>
+            <img src="assets/images/logo.png" alt="PREDAIOT Logo" class="logo"/>
+            <h1 data-en="PREDAIOT: Quantum-Classical Economic Decision Engine"
+                data-ar="بريديوت: محرك القرار الاقتصادي الكمي-الكلاسيكي"
+                data-fr="PREDAIOT : Moteur de Décision Économique Quantique-Classique">
+                PREDAIOT: Quantum-Classical Economic Decision Engine
+            </h1>
+        </header>
+
+        <!-- Founder Section -->
+        <section id="founder">
+            <h2 data-en="Founder & CEO: Chams Eddine Madi"
+                data-ar="المؤسس والرئيس التنفيذي: شامس الدين مادي"
+                data-fr="Fondateur & PDG : Chams Eddine Madi">
+                Founder & CEO: Chams Eddine Madi
+            </h2>
+            <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" class="profile-img"/>
+            <p data-en="Inventor from Ariana, Tunisia (13 Ave Habib Bourguiba, 2080). Expert in AI, ML, and quantum optimization."
+               data-ar="مخترع من أريانة، تونس (13 شارع حبيب بورقيبة، 2080). خبير في الذكاء الاصطناعي، التعلم الآلي، والتحسين الكمي."
+               data-fr="Inventeur d'Ariana, Tunisie (13 Ave Habib Bourguiba, 2080). Expert en IA, ML et optimisation quantique.">
+                Inventor from Ariana, Tunisia (13 Ave Habib Bourguiba, 2080). Expert in AI, ML, and quantum optimization.
+            </p>
+            <p><strong data-en="Contact:" data-ar="تواصل:" data-fr="Contact :">Contact:</strong> 
+               zainavocat@gmail.com | +216 50 877 637
+            </p>
+        </section>
+
+        <!-- Patent Section -->
+        <section id="patent">
+            <h2 data-en="Patent Pending: INNORPI TN/P/2025/0354"
+                data-ar="براءة اختراع معلقة: INNORPI TN/P/2025/0354"
+                data-fr="Brevet en cours : INNORPI TN/P/2025/0354">
+                Patent Pending: INNORPI TN/P/2025/0354
+            </h2>
+            <p data-en="Filed: October 1, 2025 | Title: System and method for the economic optimization of predictive maintenance for assets"
+               data-ar="تاريخ الإيداع: 1 أكتوبر 2025 | العنوان: نظام وطريقة لتحسين الصيانة التنبؤية اقتصاديًا للأصول"
+               data-fr="Déposé : 1er octobre 2025 | Titre : Système et méthode d'optimisation économique de la maintenance prédictive des actifs">
+                Filed: October 1, 2025 | Title: System and method for the economic optimization of predictive maintenance for assets
+            </p>
+            <div class="patent-images">
+                <img src="assets/images/patent1.jpg" alt="Patent Page 1"/>
+                <img src="assets/images/patent2.jpg" alt="Patent Page 2"/>
+            </div>
+        </section>
+
+        <!-- EDE v1.0 -->
+        <section id="ede-v1">
+            <h2 data-en="EDE v1.0 - Core Decision Engine"
+                data-ar="محرك القرار الاقتصادي v1.0"
+                data-fr="EDE v1.0 - Moteur de Décision Économique">
+                EDE v1.0 - Core Decision Engine
+            </h2>
+            <img src="assets/images/v1-screenshot.jpg" alt="EDE v1.0"/>
+            <ul>
+                <li data-en="ede_core.py - Main logic" data-ar="ede_core.py - المنطق الرئيسي" data-fr="ede_core.py - Logique principale">ede_core.py - Main logic</li>
+                <li data-en="test_ede.py - Unit tests" data-ar="test_ede.py - اختبارات الوحدة" data-fr="test_ede.py - Tests unitaires">test_ede.py - Unit tests</li>
+                <li data-en="input.json - Sample input" data-ar="input.json - مدخل عينة" data-fr="input.json - Entrée exemple">input.json - Sample input</li>
+            </ul>
+            <code data-en="python ede_core.py input.json output.json"
+                  data-ar="python ede_core.py input.json output.json"
+                  data-fr="python ede_core.py input.json output.json">
+                python ede_core.py input.json output.json
+            </code>
+        </section>
+
+        <!-- EDE v2.0 -->
+        <section id="ede-v2">
+            <h2 data-en="EDE v2.0 - Microservices & Quantum Integration"
+                data-ar="محرك القرار الاقتصادي v2.0 - ميكروسيرفيسز وتكامل كمي"
+                data-fr="EDE v2.0 - Microservices & Intégration Quantique">
+                EDE v2.0 - Microservices & Quantum Integration
+            </h2>
+            <img src="assets/images/v2-screenshot.jpg" alt="EDE v2.0"/>
+            <p data-en="Features: FastAPI, Docker, Graph Algorithms, QUBO Formulator"
+               data-ar="الميزات: FastAPI، Docker، خوارزميات الرسوم البيانية، صياغة QUBO"
+               data-fr="Fonctionnalités : FastAPI, Docker, Algorithmes de graphes, Formulateur QUBO">
+                Features: FastAPI, Docker, Graph Algorithms, QUBO Formulator
+            </p>
+        </section>
+
+        <!-- Economic Impact -->
+        <section id="impact">
+            <h2 data-en="Economic Impact - Oman"
+                data-ar="التأثير الاقتصادي - عمان"
+                data-fr="Impact Économique - Oman">
+                Economic Impact - Oman
+            </h2>
+            <div class="impact-grid">
+                <div>
+                    <h3 data-en="Energy Sector (2020-2024)" data-ar="قطاع الطاقة" data-fr="Secteur Énergie">Energy Sector (2020-2024)</h3>
+                    <img src="assets/images/impact-energy.jpg" alt="Energy Impact"/>
+                    <p><strong data-en="Losses Avoided:" data-ar="الخسائر المُتجنبة:" data-fr="Pertes évitées :">Losses Avoided:</strong> 716.8M OMR</p>
+                </div>
+                <div>
+                    <h3 data-en="Oil & Gas (2015-2024)" data-ar="النفط والغاز" data-fr="Pétrole & Gaz">Oil & Gas (2015-2024)</h3>
+                    <img src="assets/images/impact-oilgas.jpg" alt="Oil & Gas Impact"/>
+                    <p><strong data-en="Value Created:" data-ar="القيمة المُخلقة:" data-fr="Valeur créée :">Value Created:</strong> 8.36B OMR</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 PREDAIOT. All rights reserved. | Patent Pending TN/P/2025/0354</p>
+        </footer>
     </div>
-    <div class="lang" data-lang="ar" style="display:none;">
-        <h2>المؤسس والرئيس التنفيذي: شامس الدين مادي</h2>
-        <img src="assets/images/founder.jpg" alt="شامس الدين مادي" style="width:200px;">
-        <p>مخترع ورائد أعمال من أريانة، تونس، مؤسس PREDAIOT لمواجهة تسرب القيمة في الصناعات الرقمية.</p>
-        <p>"مستقبل الصناعة سيحدده جودة القرارات وليس البيانات فقط."</p>
-        <p>الرؤية: تحقيق أقصى إمكانات اقتصادية للأصول الصناعية في المنطقة.</p>
-        <p>المهمة: تطوير EDE لتحقيق قيمة اقتصادية تتجاوز 8 مليارات دولار وحل مشاكل تحسين معقدة لا تستطيع الحواسيب التقليدية التعامل معها.</p>
-        <p>التخصصات: التحسين الكمي المستوحى، الذكاء الصناعي، التحليلات التنبؤية والوصفية، إدارة أداء الأصول، كفاءة الطاقة، ريادة الأعمال التقنية العميقة.</p>
-        <p>التواصل: <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a> | سلطنة عمان، مسقط، شركة مسجلة بالكامل</p>
-    </div>
-</section>
 
-<!-- Patent Section -->
-<section id="patent">
-    <h2>Patent Pending: Economic Decision Engine (EDE)</h2>
-    <img src="assets/images/patent-scan1.jpg" alt="Patent scan 1">
-    <img src="assets/images/patent-scan2.jpg" alt="Patent scan 2">
-    <p>Filed Oct 1, 2025 under Tunisian INNORPI (No. INPI/2025/0354). Hybrid quantum-classical framework turning reactive cost centers into proactive profit engines.</p>
-</section>
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        // Language System
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`) || el.getAttribute('data-en');
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            document.body.style.fontFamily = lang === 'ar' ? "'Tajawal', sans-serif" : "'Roboto', sans-serif";
+        }
 
-<!-- Impact Section -->
-<section id="impact">
-    <h2>Economic Impact</h2>
-    <img src="assets/images/energy-sector.jpg" alt="Energy sector" style="width:300px;">
-    <img src="assets/images/oil-gas-sector.jpg" alt="Oil & Gas sector" style="width:300px;">
-    <img src="assets/images/bar-chart.png" alt="Bar Chart" style="width:300px;">
-</section>
-
-<script src="js/threejs-scene.js"></script>
-<script src="js/script.js"></script>
+        // Load English by default
+        window.onload = () => setLanguage('en');
+    </script>
 </body>
 </html>

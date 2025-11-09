@@ -1,32 +1,70 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    margin: 0;
-    font-family: 'Tajawal', sans-serif;
-    background: linear-gradient(to bottom, #001133, #0044aa);
+    font-family: 'Roboto', sans-serif;
+    background: #000;
     color: #fff;
-    direction: rtl;
-    text-align: right;
+    overflow-x: hidden;
+    transition: all 0.3s;
 }
+
 #threejs-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0; width: 100%; height: 100%;
     z-index: -1;
 }
-header, section {
-    padding: 20px;
+
+.content {
+    position: relative;
+    z-index: 1;
     max-width: 1200px;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 0 auto;
+    padding: 100px 20px 50px;
 }
-h1, h2, h3 {
-    text-align: center;
+
+header { text-align: center; margin-bottom: 40px; }
+.logo { width: 80px; margin-bottom: 20px; }
+h1 { font-size: 2.2rem; margin-bottom: 20px; }
+h2 { font-size: 1.8rem; margin: 30px 0 15px; text-align: center; color: #00ff88; }
+
+section { background: rgba(0, 0, 0, 0.7); padding: 25px; border-radius: 15px; margin-bottom: 30px; backdrop-filter: blur(5px); }
+.profile-img, .patent-images img, .impact-grid img { 
+    max-width: 100%; border-radius: 10px; margin: 15px auto; display: block; 
 }
-img {
-    max-width: 100%;
-    display: block;
-    margin: auto;
+.patent-images { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.patent-images img { width: 45%; }
+
+code {
+    background: #111; padding: 10px; border-radius: 8px; display: block; margin: 15px 0; font-family: monospace; color: #0f0;
+}
+
+.lang-switcher {
+    position: fixed;
+    top: 20px; right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+}
+.lang-btn {
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: 1px solid #0f0;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.lang-btn.active, .lang-btn:hover {
+    background: #0f0; color: #000;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 768px) {
+    .impact-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 1.8rem; }
 }
