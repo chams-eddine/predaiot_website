@@ -1,116 +1,96 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PREDAIOT - AI & IoT Next Generation</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PREDAIOT - Deep Tech AI & IoT</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TextGeometry.js"></script>
 </head>
 <body>
 
-    <header>
-        <img src="assets/images/logo.png" alt="PREDAIOT Logo">
-        <h1>PREDAIOT: Transforming Energy Assets into Automated Financial Instruments</h1>
-        <nav>
-            <select id="language-selector">
-                <option value="ar">العربية</option>
-                <option value="fr">Français</option>
-                <option value="en" selected>English</option>
-            </select>
-        </nav>
-    </header>
+<header>
+    <img src="assets/images/logo.png" alt="PREDAIOT Logo" style="height:80px;">
+    <h1>PREDAIOT: Transforming Energy Assets into Automated Financial Instruments</h1>
+    <nav>
+        <select id="language-selector">
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+            <option value="en" selected>English</option>
+        </select>
+    </nav>
+</header>
 
-    <!-- Founder Section -->
-    <section id="founder">
-        <!-- Arabic -->
-        <div class="lang" data-lang="ar">
-            <h2>المؤسس والرئيس التنفيذي: شامس الدين مادي</h2>
-            <img src="assets/images/founder.jpg" alt="شامس الدين مادي">
-            <p>شامس الدين مادي، مخترع ومؤسس من أريانة، تونس. خلفية في الذكاء الاصطناعي، التعلم الآلي والحوسبة الكمية. الرؤية: جعل كل أصل صناعي في المنطقة العربية يعمل بأقصى إمكاناته الاقتصادية.</p>
-            <p>التخصصات: التحسين الكمي المستوحى، الذكاء الاصطناعي الصناعي، التحليلات التنبؤية والوصفية، إدارة أداء الأصول، كفاءة الطاقة، التحول الرقمي، التكنولوجيا العميقة، وريادة الأعمال.</p>
-            <p>البريد: zainavocat@gmail.com | الهاتف: +216 50 877 637</p>
-        </div>
-        <!-- French -->
-        <div class="lang" data-lang="fr" style="display:none;">
-            <h2>Fondateur & PDG : Chams Eddine Madi</h2>
-            <img src="assets/images/founder.jpg" alt="Chams Eddine Madi">
-            <p>Chams Eddine Madi, inventeur et fondateur d'Ariana, Tunisie. Expérience en intelligence artificielle, apprentissage automatique et informatique quantique. Vision : faire fonctionner chaque actif industriel dans la région arabe à son plein potentiel économique.</p>
-            <p>Expertise : optimisation inspirée quantique, IA industrielle, analyses prédictives et prescriptives, gestion de performance des actifs, efficacité énergétique, transformation digitale, deep tech et entrepreneuriat.</p>
-            <p>Email : zainavocat@gmail.com | Téléphone : +216 50 877 637</p>
-        </div>
-        <!-- English -->
-        <div class="lang" data-lang="en" style="display:none;">
-            <h2>Founder & CEO: Chams Eddine Madi</h2>
-            <img src="assets/images/founder.jpg" alt="Chams Eddine Madi">
-            <p>Chams Eddine Madi, inventor and founder from Ariana, Tunisia. Background in Artificial Intelligence, Machine Learning, and Quantum Computing. Vision: to make every industrial asset in the Arab region operate at its full economic potential.</p>
-            <p>Expertise: Quantum-inspired optimization, industrial AI, predictive and prescriptive analytics, asset performance management, energy efficiency, digital transformation, deep tech, and entrepreneurship.</p>
-            <p>Email: zainavocat@gmail.com | Phone: +216 50 877 637</p>
-        </div>
-    </section>
+<!-- 3D Genius Container -->
+<div id="threejs-container" style="width:100%; height:500px;"></div>
 
-    <!-- Patent Section -->
-    <section id="patent">
-        <!-- Arabic -->
-        <div class="lang" data-lang="ar">
-            <h2>البراءة المعلقة: محرك القرار الاقتصادي (EDE)</h2>
-            <img src="assets/images/patent-scan1.jpg" alt="مسح البراءة صفحة 1">
-            <p>رقم البراءة: TN/P/2025/0354، تاريخ الإيداع: 01/10/2025، تحت INNORPI التونسية. نظام هجين كمي-كلاسيكي لحل مشاكل التحسين المعقدة باستخدام QUBO وQPUs مثل D-Wave.</p>
-        </div>
-        <!-- French -->
-        <div class="lang" data-lang="fr" style="display:none;">
-            <h2>Brevet en attente : Moteur de décision économique (EDE)</h2>
-            <img src="assets/images/patent-scan1.jpg" alt="Scan du brevet page 1">
-            <p>Numéro du brevet : TN/P/2025/0354, Dépôt : 01/10/2025, sous INNORPI Tunisie. Système hybride quantique-classique pour résoudre des problèmes d'optimisation complexes utilisant QUBO et QPUs comme D-Wave.</p>
-        </div>
-        <!-- English -->
-        <div class="lang" data-lang="en" style="display:none;">
-            <h2>Pending Patent: Economic Decision Engine (EDE)</h2>
-            <img src="assets/images/patent-scan1.jpg" alt="Patent Scan Page 1">
-            <p>Patent Number: TN/P/2025/0354, Filing Date: 01/10/2025, under INNORPI Tunisia. Hybrid quantum-classical system solving complex optimization problems using QUBO and QPUs like D-Wave.</p>
-        </div>
-    </section>
+<!-- Founder Section -->
+<section id="founder">
+    <div class="lang" data-lang="ar">
+        <h2>المؤسس والرئيس التنفيذي: شامس الدين مادي</h2>
+        <img src="assets/images/founder.jpg" alt="شامس الدين مادي" style="width:200px;">
+        <p>شامس الدين مادي، مخترع ومؤسس من أريانة، تونس. خلفية في الذكاء الاصطناعي، التعلم الآلي والحوسبة الكمية. الرؤية: جعل كل أصل صناعي في المنطقة العربية يعمل بأقصى إمكاناته الاقتصادية.</p>
+    </div>
+    <div class="lang" data-lang="fr" style="display:none;">
+        <h2>Fondateur & PDG : Chams Eddine Madi</h2>
+        <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
+        <p>Chams Eddine Madi, inventeur et fondateur d'Ariana, Tunisie. Expérience en intelligence artificielle, apprentissage automatique et informatique quantique.</p>
+    </div>
+    <div class="lang" data-lang="en" style="display:none;">
+        <h2>Founder & CEO: Chams Eddine Madi</h2>
+        <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
+        <p>Chams Eddine Madi, inventor and founder from Ariana, Tunisia. Background in AI, Machine Learning, and Quantum Computing.</p>
+    </div>
+</section>
 
-    <!-- Technology Section -->
-    <section id="technology">
-        <!-- Arabic -->
-        <div class="lang" data-lang="ar">
-            <h2>التكنولوجيا: محرك القرار الاقتصادي (EDE)</h2>
-            <p>نسخة Python الأساسية، تغطي سيناريوهات NO_ACTION، EXECUTE، POSTPONE.</p>
-        </div>
-        <!-- French -->
-        <div class="lang" data-lang="fr" style="display:none;">
-            <h2>Technologie : Moteur de décision économique (EDE)</h2>
-            <p>Version Python de base, couvre les scénarios NO_ACTION, EXECUTE, POSTPONE.</p>
-        </div>
-        <!-- English -->
-        <div class="lang" data-lang="en" style="display:none;">
-            <h2>Technology: Economic Decision Engine (EDE)</h2>
-            <p>Basic Python implementation covering scenarios NO_ACTION, EXECUTE, POSTPONE.</p>
-        </div>
-    </section>
+<!-- Patent Section -->
+<section id="patent">
+    <div class="lang" data-lang="ar">
+        <h2>البراءة المعلقة: محرك القرار الاقتصادي (EDE)</h2>
+        <img src="assets/images/patent-scan1.jpg" alt="مسح البراءة صفحة 1">
+        <img src="assets/images/patent-scan2.jpg" alt="مسح البراءة صفحة 2">
+        <p>رقم البراءة: TN/P/2025/0354، نظام هجين كمي-كلاسيكي لحل مشاكل التحسين المعقدة باستخدام QUBO وQPUs.</p>
+    </div>
+    <div class="lang" data-lang="fr" style="display:none;">
+        <h2>Brevet en attente: EDE</h2>
+        <img src="assets/images/patent-scan1.jpg" alt="Scan brevet 1">
+        <img src="assets/images/patent-scan2.jpg" alt="Scan brevet 2">
+        <p>Numéro de brevet: TN/P/2025/0354, système hybride quantique-classique pour l’optimisation complexe.</p>
+    </div>
+    <div class="lang" data-lang="en" style="display:none;">
+        <h2>Pending Patent: Economic Decision Engine (EDE)</h2>
+        <img src="assets/images/patent-scan1.jpg" alt="Patent scan 1">
+        <img src="assets/images/patent-scan2.jpg" alt="Patent scan 2">
+        <p>Patent number: TN/P/2025/0354, hybrid quantum-classical system for complex optimization.</p>
+    </div>
+</section>
 
-    <!-- Economic Impact Section -->
-    <section id="impact">
-        <!-- Arabic -->
-        <div class="lang" data-lang="ar">
-            <h2>التأثيرات الاقتصادية</h2>
-            <p>قطاع الطاقة في عمان: خسائر بدون PREDAIOT: -716,822,470 OMR.</p>
-        </div>
-        <!-- French -->
-        <div class="lang" data-lang="fr" style="display:none;">
-            <h2>Impact économique</h2>
-            <p>Secteur de l'énergie à Oman : pertes sans PREDAIOT : -716,822,470 OMR.</p>
-        </div>
-        <!-- English -->
-        <div class="lang" data-lang="en" style="display:none;">
-            <h2>Economic Impact</h2>
-            <p>Energy sector in Oman: losses without PREDAIOT: -716,822,470 OMR.</p>
-        </div>
-    </section>
+<!-- Impact Section -->
+<section id="impact">
+    <div class="lang" data-lang="ar">
+        <h2>التأثيرات الاقتصادية</h2>
+        <img src="assets/images/impact-energy.jpg" alt="تقرير الطاقة" style="width:300px;">
+        <img src="assets/images/impact-oilgas.jpg" alt="تقرير النفط والغاز" style="width:300px;">
+        <img src="assets/images/bar-chart.png" alt="رسم بياني للخسائر مقابل القيمة" style="width:300px;">
+    </div>
+    <div class="lang" data-lang="fr" style="display:none;">
+        <h2>Impacts économiques</h2>
+        <img src="assets/images/impact-energy.jpg" alt="Rapport énergie" style="width:300px;">
+        <img src="assets/images/impact-oilgas.jpg" alt="Rapport pétrole et gaz" style="width:300px;">
+        <img src="assets/images/bar-chart.png" alt="Graphique" style="width:300px;">
+    </div>
+    <div class="lang" data-lang="en" style="display:none;">
+        <h2>Economic Impacts</h2>
+        <img src="assets/images/impact-energy.jpg" alt="Energy Report" style="width:300px;">
+        <img src="assets/images/impact-oilgas.jpg" alt="Oil & Gas Report" style="width:300px;">
+        <img src="assets/images/bar-chart.png" alt="Bar Chart" style="width:300px;">
+    </div>
+</section>
 
-    <script src="js/script.js"></script>
+<script src="js/threejs-scene.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
