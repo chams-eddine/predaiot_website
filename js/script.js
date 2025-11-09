@@ -1,5 +1,5 @@
 let scene, camera, renderer, controls;
-let sentinel, oracle, particles;
+let sentinel, oracle, particles, docModels = [];
 
 function init3D() {
     scene = new THREE.Scene();
@@ -48,6 +48,20 @@ function init3D() {
     particles = new THREE.Points(geo, mat);
     scene.add(particles);
 
+    // 3D Document Cards (New: Rotating planes for credentials)
+    const docTextures = ['assets/images/driving-license.jpg', 'assets/images/omani-resident.jpg', 'assets/images/visa-confirmation.jpg']; // Add more
+    docTextures.forEach((tex, i) => {
+        const textureLoader = new THREE.TextureLoader();
+        const texture = textureLoader.load(tex);
+        const docGeo = new THREE.PlaneGeometry(1, 0.7);
+        const docMat = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+        const doc = new THREE.Mesh(docGeo, docMat);
+        doc.position.set((i - 1) * 2, -3, 0);
+        doc.rotation.y = Math.PI / 4;
+        scene.add(doc);
+        docModels.push(doc);
+    });
+
     // Controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
@@ -67,6 +81,9 @@ function animate() {
     sentinel.rotation.y += 0.01;
     oracle.rotation.y -= 0.01;
     particles.rotation.y += 0.002;
+    docModels.forEach((doc, i) => {
+        doc.rotation.y += 0.005 + (i * 0.001); // Rotate documents
+    });
     controls.update();
     renderer.render(scene, camera);
 }
