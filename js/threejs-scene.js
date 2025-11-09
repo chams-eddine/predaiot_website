@@ -14,7 +14,7 @@ function init3DGenius() {
     scene.background = new THREE.Color(0x0f0f1f);
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 5, 15);
+    camera.position.set(0,5,15);
 
     renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
     renderer.setSize(window.innerWidth, 500);
@@ -23,10 +23,7 @@ function init3DGenius() {
     controls = new THREE.OrbitControls(camera, renderer.domElement);
 
     // Lights
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    dirLight.position.set(10,20,10);
-    scene.add(dirLight);
-
+    scene.add(new THREE.DirectionalLight(0xffffff, 1.2));
     const pointLight = new THREE.PointLight(0x00ffff, 2, 50);
     pointLight.position.set(-10,10,10);
     scene.add(pointLight);
@@ -37,7 +34,7 @@ function init3DGenius() {
     neonCube = new THREE.Mesh(cubeGeo, cubeMat);
     scene.add(neonCube);
 
-    // Load font
+    // Load Font
     const loader = new THREE.FontLoader();
     loader.load('assets/fonts/helvetiker_regular.typeface.json', function(loadedFont){
         font = loadedFont;
@@ -49,10 +46,8 @@ function init3DGenius() {
 
 function createText(message){
     if(meshText) scene.remove(meshText);
-
     const geometry = new THREE.TextGeometry(message, { font: font, size:1.5, height:0.5, curveSegments:12 });
-    const material = new THREE.MeshStandardMaterial({ color:0xff00ff, emissive:0xff00ff, metalness:0.6, roughness:0.2 });
-
+    const material = new THREE.MeshStandardMaterial({ color:0xff00ff, emissive:0xff00ff });
     meshText = new THREE.Mesh(geometry, material);
     geometry.center();
     meshText.position.y = 3;

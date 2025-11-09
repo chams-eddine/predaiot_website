@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PREDAIOT - Deep Tech AI & IoT</title>
+<title>PREDAIOT - Quantum-AI Hybrid Optimization for Industrial Assets</title>
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/FontLoader.js"></script>
@@ -14,7 +16,7 @@
 
 <header>
     <img src="assets/images/logo.png" alt="PREDAIOT Logo" style="height:80px;">
-    <h1>PREDAIOT: Transforming Energy Assets into Automated Financial Instruments</h1>
+    <h1>PREDAIOT: Quantum-AI Hybrid Optimization for Industrial Assets</h1>
     <nav>
         <select id="language-selector">
             <option value="ar">العربية</option>
@@ -24,70 +26,52 @@
     </nav>
 </header>
 
-<!-- 3D Genius Container -->
+<!-- Genius 3D Container -->
 <div id="threejs-container" style="width:100%; height:500px;"></div>
 
 <!-- Founder Section -->
 <section id="founder">
-    <div class="lang" data-lang="ar">
-        <h2>المؤسس والرئيس التنفيذي: شامس الدين مادي</h2>
-        <img src="assets/images/founder.jpg" alt="شامس الدين مادي" style="width:200px;">
-        <p>شامس الدين مادي، مخترع ومؤسس من أريانة، تونس. خلفية في الذكاء الاصطناعي، التعلم الآلي والحوسبة الكمية. الرؤية: جعل كل أصل صناعي في المنطقة العربية يعمل بأقصى إمكاناته الاقتصادية.</p>
+    <div class="lang" data-lang="en">
+        <h2>Founder & CEO: Chams Eddine Madi</h2>
+        <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
+        <p>Chams Eddine Madi, inventor and CEO, hails from Ariana, Tunisia. Visionary in AI, ML, and Quantum Computing, founded PREDAIOT to combat "value leakage" in industrial sectors.</p>
+        <p>"The future of industry will be defined not by the data we collect, but by the quality of the decisions we make."</p>
+        <p>Vision: Peak economic potential for MENA assets; Quantum-AI synergy for net-zero acceleration and Oman's deep tech leadership.</p>
+        <p>Mission: Scale EDE to deliver $8B+ in value, solving NP-hard optimizations classical systems cannot.</p>
+        <p>Specialties: Quantum-Inspired Optimization, Industrial AI, Prescriptive Analytics, APM, Energy Efficiency, Deep Tech Entrepreneurship.</p>
+        <p>Connect: <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a> | Phone: <a href="tel:+96874114028">+968 7411 4028</a> | Full registered company in Muscat, Oman</p>
     </div>
     <div class="lang" data-lang="fr" style="display:none;">
         <h2>Fondateur & PDG : Chams Eddine Madi</h2>
         <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
-        <p>Chams Eddine Madi, inventeur et fondateur d'Ariana, Tunisie. Expérience en intelligence artificielle, apprentissage automatique et informatique quantique.</p>
+        <p>Description en français à compléter...</p>
     </div>
-    <div class="lang" data-lang="en" style="display:none;">
-        <h2>Founder & CEO: Chams Eddine Madi</h2>
-        <img src="assets/images/founder.jpg" alt="Chams Eddine Madi" style="width:200px;">
-        <p>Chams Eddine Madi, inventor and founder from Ariana, Tunisia. Background in AI, Machine Learning, and Quantum Computing.</p>
+    <div class="lang" data-lang="ar" style="display:none;">
+        <h2>المؤسس والرئيس التنفيذي: شامس الدين مادي</h2>
+        <img src="assets/images/founder.jpg" alt="شامس الدين مادي" style="width:200px;">
+        <p>مخترع ورائد أعمال من أريانة، تونس، مؤسس PREDAIOT لمواجهة تسرب القيمة في الصناعات الرقمية.</p>
+        <p>"مستقبل الصناعة سيحدده جودة القرارات وليس البيانات فقط."</p>
+        <p>الرؤية: تحقيق أقصى إمكانات اقتصادية للأصول الصناعية في المنطقة.</p>
+        <p>المهمة: تطوير EDE لتحقيق قيمة اقتصادية تتجاوز 8 مليارات دولار وحل مشاكل تحسين معقدة لا تستطيع الحواسيب التقليدية التعامل معها.</p>
+        <p>التخصصات: التحسين الكمي المستوحى، الذكاء الصناعي، التحليلات التنبؤية والوصفية، إدارة أداء الأصول، كفاءة الطاقة، ريادة الأعمال التقنية العميقة.</p>
+        <p>التواصل: <a href="mailto:al.shams.invest@gmail.com">al.shams.invest@gmail.com</a> | سلطنة عمان، مسقط، شركة مسجلة بالكامل</p>
     </div>
 </section>
 
 <!-- Patent Section -->
 <section id="patent">
-    <div class="lang" data-lang="ar">
-        <h2>البراءة المعلقة: محرك القرار الاقتصادي (EDE)</h2>
-        <img src="assets/images/patent-scan1.jpg" alt="مسح البراءة صفحة 1">
-        <img src="assets/images/patent-scan2.jpg" alt="مسح البراءة صفحة 2">
-        <p>رقم البراءة: TN/P/2025/0354، نظام هجين كمي-كلاسيكي لحل مشاكل التحسين المعقدة باستخدام QUBO وQPUs.</p>
-    </div>
-    <div class="lang" data-lang="fr" style="display:none;">
-        <h2>Brevet en attente: EDE</h2>
-        <img src="assets/images/patent-scan1.jpg" alt="Scan brevet 1">
-        <img src="assets/images/patent-scan2.jpg" alt="Scan brevet 2">
-        <p>Numéro de brevet: TN/P/2025/0354, système hybride quantique-classique pour l’optimisation complexe.</p>
-    </div>
-    <div class="lang" data-lang="en" style="display:none;">
-        <h2>Pending Patent: Economic Decision Engine (EDE)</h2>
-        <img src="assets/images/patent-scan1.jpg" alt="Patent scan 1">
-        <img src="assets/images/patent-scan2.jpg" alt="Patent scan 2">
-        <p>Patent number: TN/P/2025/0354, hybrid quantum-classical system for complex optimization.</p>
-    </div>
+    <h2>Patent Pending: Economic Decision Engine (EDE)</h2>
+    <img src="assets/images/patent-scan1.jpg" alt="Patent scan 1">
+    <img src="assets/images/patent-scan2.jpg" alt="Patent scan 2">
+    <p>Filed Oct 1, 2025 under Tunisian INNORPI (No. INPI/2025/0354). Hybrid quantum-classical framework turning reactive cost centers into proactive profit engines.</p>
 </section>
 
 <!-- Impact Section -->
 <section id="impact">
-    <div class="lang" data-lang="ar">
-        <h2>التأثيرات الاقتصادية</h2>
-        <img src="assets/images/impact-energy.jpg" alt="تقرير الطاقة" style="width:300px;">
-        <img src="assets/images/impact-oilgas.jpg" alt="تقرير النفط والغاز" style="width:300px;">
-        <img src="assets/images/bar-chart.png" alt="رسم بياني للخسائر مقابل القيمة" style="width:300px;">
-    </div>
-    <div class="lang" data-lang="fr" style="display:none;">
-        <h2>Impacts économiques</h2>
-        <img src="assets/images/impact-energy.jpg" alt="Rapport énergie" style="width:300px;">
-        <img src="assets/images/impact-oilgas.jpg" alt="Rapport pétrole et gaz" style="width:300px;">
-        <img src="assets/images/bar-chart.png" alt="Graphique" style="width:300px;">
-    </div>
-    <div class="lang" data-lang="en" style="display:none;">
-        <h2>Economic Impacts</h2>
-        <img src="assets/images/impact-energy.jpg" alt="Energy Report" style="width:300px;">
-        <img src="assets/images/impact-oilgas.jpg" alt="Oil & Gas Report" style="width:300px;">
-        <img src="assets/images/bar-chart.png" alt="Bar Chart" style="width:300px;">
-    </div>
+    <h2>Economic Impact</h2>
+    <img src="assets/images/energy-sector.jpg" alt="Energy sector" style="width:300px;">
+    <img src="assets/images/oil-gas-sector.jpg" alt="Oil & Gas sector" style="width:300px;">
+    <img src="assets/images/bar-chart.png" alt="Bar Chart" style="width:300px;">
 </section>
 
 <script src="js/threejs-scene.js"></script>
